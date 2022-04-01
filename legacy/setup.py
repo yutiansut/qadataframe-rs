@@ -8,7 +8,7 @@ with open(path.join(this_directory, "README.md"), encoding="utf-8") as f:
 
 
 setup(
-    name="py-polars",
+    name="qadataframe",
     version="0.8.10",
     description="legacy version of polars",
     author="Ritchie Vink",

@@ -1347,23 +1347,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "py-polars"
-version = "0.13.16"
-dependencies = [
- "ahash",
- "bincode",
- "libc",
- "mimalloc",
- "ndarray",
- "numpy",
- "polars",
- "polars-core",
- "pyo3",
- "serde_json",
- "thiserror",
-]
-
-[[package]]
 name = "pyo3"
 version = "0.16.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1421,6 +1404,23 @@ dependencies = [
  "pyo3-build-config",
  "quote",
  "syn",
+]
+
+[[package]]
+name = "qadataframe"
+version = "0.13.16"
+dependencies = [
+ "ahash",
+ "bincode",
+ "libc",
+ "mimalloc",
+ "ndarray",
+ "numpy",
+ "polars",
+ "polars-core",
+ "pyo3",
+ "serde_json",
+ "thiserror",
 ]
 
 [[package]]

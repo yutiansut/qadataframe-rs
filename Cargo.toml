@@ -1,8 +1,8 @@
 [package]
-name = "py-polars"
+name = "qadataframe"
 version = "0.13.16"
 authors = ["ritchie46 <ritchie46@gmail.com>"]
-documentation = "https://pola-rs.github.io/polars/py-polars/html/reference/index.html"
+documentation = "https://pola-rs.github.io/polars/qadataframe/html/reference/index.html"
 edition = "2021"
 homepage = "https://github.com/pola-rs/polars"
 license = "MIT"

@@ -7,7 +7,7 @@
 [![NPM Latest Release](https://img.shields.io/npm/v/nodejs-polars.svg)](https://www.npmjs.com/package/nodejs-polars)
 
 <p align="center">
-  <a href="https://pola-rs.github.io/polars/py-polars/html/reference/index.html">Python Documentation</a>
+  <a href="https://pola-rs.github.io/polars/qadataframe/html/reference/index.html">Python Documentation</a>
   |
   <a href="https://pola-rs.github.io/polars/polars/index.html">Rust Documentation</a>
   |
@@ -128,7 +128,7 @@ Want to know about all the features Polars supports? Read the docs!
 #### Python
 
   * Installation guide: `$ pip3 install polars`
-  * [Python documentation](https://pola-rs.github.io/polars/py-polars/html/reference/index.html)
+  * [Python documentation](https://pola-rs.github.io/polars/qadataframe/html/reference/index.html)
   * [User guide](https://pola-rs.github.io/polars-book/)
 
 #### Rust
@@ -159,14 +159,14 @@ This can be done by going through the following steps in sequence:
   3. Choose any of:
       * Fastest binary, very long compile times:
         ```bash
-        $ cd py-polars && maturin develop --rustc-extra-args="-C target-cpu=native" --release
+        $ cd qadataframe && maturin develop --rustc-extra-args="-C target-cpu=native" --release
         ```
       * Fast binary, Shorter compile times:
         ```bash
-        $ cd py-polars && maturin develop --rustc-extra-args="-C codegen-units=16 -C lto=thin -C target-cpu=native" --release
+        $ cd qadataframe && maturin develop --rustc-extra-args="-C codegen-units=16 -C lto=thin -C target-cpu=native" --release
         ```
 
-Note that the Rust crate implementing the Python bindings is called `py-polars` to distinguish from the wrapped
+Note that the Rust crate implementing the Python bindings is called `qadataframe` to distinguish from the wrapped
 Rust crate `polars` itself. However, both the Python package and the Python module are named `polars`, so you
 can `pip install polars` and `import polars`.
 
