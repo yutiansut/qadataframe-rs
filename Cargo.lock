@@ -1221,7 +1221,7 @@ dependencies = [
 [[package]]
 name = "polars"
 version = "0.20.0"
-source = "git+https://github.com/yutiansut/polars#dd580b08e50b82b26b761e49e199f1379f3faf75"
+source = "git+https://github.com/yutiansut/polars#15a3cdf50e982ee325bb2b21f8483706553f4a11"
 dependencies = [
  "polars-core",
  "polars-io",
@@ -1232,7 +1232,7 @@ dependencies = [
 [[package]]
 name = "polars-arrow"
 version = "0.20.0"
-source = "git+https://github.com/yutiansut/polars#dd580b08e50b82b26b761e49e199f1379f3faf75"
+source = "git+https://github.com/yutiansut/polars#15a3cdf50e982ee325bb2b21f8483706553f4a11"
 dependencies = [
  "arrow2",
  "hashbrown 0.12.0",
@@ -1243,7 +1243,7 @@ dependencies = [
 [[package]]
 name = "polars-core"
 version = "0.20.0"
-source = "git+https://github.com/yutiansut/polars#dd580b08e50b82b26b761e49e199f1379f3faf75"
+source = "git+https://github.com/yutiansut/polars#15a3cdf50e982ee325bb2b21f8483706553f4a11"
 dependencies = [
  "ahash",
  "anyhow",
@@ -1272,7 +1272,7 @@ dependencies = [
 [[package]]
 name = "polars-io"
 version = "0.20.0"
-source = "git+https://github.com/yutiansut/polars#dd580b08e50b82b26b761e49e199f1379f3faf75"
+source = "git+https://github.com/yutiansut/polars#15a3cdf50e982ee325bb2b21f8483706553f4a11"
 dependencies = [
  "ahash",
  "anyhow",
@@ -1298,7 +1298,7 @@ dependencies = [
 [[package]]
 name = "polars-lazy"
 version = "0.20.0"
-source = "git+https://github.com/yutiansut/polars#dd580b08e50b82b26b761e49e199f1379f3faf75"
+source = "git+https://github.com/yutiansut/polars#15a3cdf50e982ee325bb2b21f8483706553f4a11"
 dependencies = [
  "ahash",
  "glob",
@@ -1315,7 +1315,7 @@ dependencies = [
 [[package]]
 name = "polars-time"
 version = "0.20.0"
-source = "git+https://github.com/yutiansut/polars#dd580b08e50b82b26b761e49e199f1379f3faf75"
+source = "git+https://github.com/yutiansut/polars#15a3cdf50e982ee325bb2b21f8483706553f4a11"
 dependencies = [
  "chrono",
  "polars-arrow",
@@ -1325,7 +1325,7 @@ dependencies = [
 [[package]]
 name = "polars-utils"
 version = "0.20.0"
-source = "git+https://github.com/yutiansut/polars#dd580b08e50b82b26b761e49e199f1379f3faf75"
+source = "git+https://github.com/yutiansut/polars#15a3cdf50e982ee325bb2b21f8483706553f4a11"
 dependencies = [
  "parking_lot 0.12.0",
  "rayon",
