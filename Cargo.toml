@@ -99,7 +99,7 @@ features = [
 # packed_simd_2 = { git = "https://github.com/rust-lang/packed_simd" }
 
 [lib]
-name = "polars"
+name = "qadataframe"
 crate-type = ["cdylib"]
 
 [profile.release]

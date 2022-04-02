@@ -1,7 +1,7 @@
 # flake8: noqa: W191,E101
 import copy
 
-import polars as pl
+import qadataframe as pl
 
 
 def test_copy() -> None:

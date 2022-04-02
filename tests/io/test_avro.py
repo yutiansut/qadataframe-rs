@@ -4,8 +4,8 @@ from typing import List
 
 import pytest
 
-import polars as pl
-from polars import io
+import qadataframe as pl
+from qadataframe import io
 
 
 @pytest.fixture

@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-import polars as pl
+import qadataframe as pl
 
 
 @pytest.fixture
@@ -83,7 +83,7 @@ def test_select_projection() -> None:
 
 def test_parquet_chunks() -> None:
     """
-    This failed in https://github.com/pola-rs/polars/issues/545
+    This failed in https://github.com/pola-rs/qadataframe/issues/545
     """
     cases = [
         1048576,
@@ -102,9 +102,9 @@ def test_parquet_chunks() -> None:
         df.to_parquet(f)
         f.seek(0)
 
-        # read it with polars
-        polars_df = pl.read_parquet(f)
-        assert pl.DataFrame(df).frame_equal(polars_df)
+        # read it with qadataframe
+        qadataframe_df = pl.read_parquet(f)
+        assert pl.DataFrame(df).frame_equal(qadataframe_df)
 
 
 def test_parquet_datetime() -> None:

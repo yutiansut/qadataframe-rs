@@ -1,13 +1,13 @@
 from typing import Any, Union
 
 try:
-    from polars.polars import when as pywhen
+    from qadataframe.qadataframe  import when as pywhen
 
     _DOCUMENTING = False
 except ImportError:  # pragma: no cover
     _DOCUMENTING = True
 
-from polars import internals as pli
+from qadataframe  import internals as pli
 
 
 class WhenThenThen:

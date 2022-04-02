@@ -2,8 +2,8 @@ import numpy as np
 import pytest
 from _pytest.capture import CaptureFixture
 
-import polars as pl
-from polars import col, lit, map_binary, when
+import qadataframe as pl
+from qadataframe import col, lit, map_binary, when
 
 
 def test_lazy() -> None:
@@ -1184,7 +1184,7 @@ def test_self_join() -> None:
 def test_preservation_of_subclasses() -> None:
     """Tests for LazyFrame inheritance."""
 
-    # We should be able to inherit from polars.LazyFrame
+    # We should be able to inherit from qadataframe.LazyFrame
     class SubClassedLazyFrame(pl.LazyFrame):
         pass
 

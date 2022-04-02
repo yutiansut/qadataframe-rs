@@ -3,7 +3,7 @@ from typing import Type
 import numpy as np
 import pytest
 
-import polars as pl
+import qadataframe as pl
 
 
 @pytest.mark.parametrize("dtype", [pl.Float32, pl.Float64, pl.Int32])

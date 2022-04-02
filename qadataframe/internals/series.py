@@ -25,8 +25,8 @@ except ImportError:  # pragma: no cover
 
 import math
 
-from polars import internals as pli
-from polars.internals.construction import (
+from qadataframe  import internals as pli
+from qadataframe.internals.construction import (
     arrow_to_pyseries,
     numpy_to_pyseries,
     pandas_to_pyseries,
@@ -35,13 +35,13 @@ from polars.internals.construction import (
 )
 
 try:
-    from polars.polars import PyDataFrame, PySeries
+    from qadataframe.qadataframe  import PyDataFrame, PySeries
 
     _DOCUMENTING = False
 except ImportError:  # pragma: no cover
     _DOCUMENTING = True
 
-from polars.datatypes import (
+from qadataframe.datatypes import (
     Boolean,
     DataType,
     Date,
@@ -54,8 +54,8 @@ from polars.datatypes import (
     Int32,
     Int64,
 )
-from polars.datatypes import List as PlList
-from polars.datatypes import (
+from qadataframe.datatypes import List as PlList
+from qadataframe.datatypes import (
     Object,
     Time,
     UInt8,
@@ -68,7 +68,7 @@ from polars.datatypes import (
     maybe_cast,
     py_type_to_dtype,
 )
-from polars.utils import (
+from qadataframe.utils import (
     _date_to_pl_date,
     _datetime_to_pl_timestamp,
     _ptr_to_numpy,
@@ -104,7 +104,7 @@ def get_ffi_func(
         for example
             "call_foo_<>"
     dtype
-        polars dtype.
+        qadataframe  dtype.
     obj
         Object to find the method for.
 
@@ -128,7 +128,7 @@ ArrayLike = Union[
 
 class Series:
     """
-    A Series represents a single column in a polars DataFrame.
+    A Series represents a single column in a qadataframe  DataFrame.
 
     Parameters
     ----------
@@ -159,10 +159,10 @@ class Series:
             3
     ]
 
-    Notice that the dtype is automatically inferred as a polars Int64:
+    Notice that the dtype is automatically inferred as a qadataframe  Int64:
 
     >>> s.dtype
-    <class 'polars.datatypes.Int64'>
+    <class 'qadataframe.datatypes.Int64'>
 
     Constructing a Series with a specific dtype:
 
@@ -602,7 +602,7 @@ class Series:
         └─────┘
 
         >>> type(df)
-        <class 'polars.internals.frame.DataFrame'>
+        <class 'qadataframe.internals.frame.DataFrame'>
 
         """
         return pli.wrap_df(PyDataFrame([self._s]))
@@ -616,7 +616,7 @@ class Series:
         --------
         >>> s = pl.Series("a", [1, 2, 3])
         >>> s.dtype
-        <class 'polars.datatypes.Int64'>
+        <class 'qadataframe.datatypes.Int64'>
 
         """
         return self._s.dtype()
@@ -706,7 +706,7 @@ class Series:
                 "count": self.len(),
             }
         elif self.is_datelike():
-            # we coerce all to string, because a polars column
+            # we coerce all to string, because a qadataframe  column
             # only has a single dtype and dates: datetime and count: int don't match
             stats = {
                 "min": str(self.dt.min()),

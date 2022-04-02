@@ -1,6 +1,6 @@
 import pytest
 
-import polars as pl
+import qadataframe as pl
 
 
 def test_compare_series_value_mismatch() -> None:

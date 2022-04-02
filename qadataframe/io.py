@@ -19,7 +19,7 @@ from typing import (
 )
 from urllib.request import urlopen
 
-from polars.utils import format_path, handle_projection_columns
+from qadataframe.utils import format_path, handle_projection_columns
 
 try:
     import pyarrow as pa
@@ -31,12 +31,12 @@ try:
 except ImportError:  # pragma: no cover
     _PYARROW_AVAILABLE = False
 
-from polars.convert import from_arrow
-from polars.datatypes import DataType
-from polars.internals import DataFrame, LazyFrame
+from qadataframe.convert import from_arrow
+from qadataframe.datatypes import DataType
+from qadataframe.internals import DataFrame, LazyFrame
 
 try:
-    from polars.polars import ipc_schema as _ipc_schema
+    from qadataframe.qadataframe  import ipc_schema as _ipc_schema
 except ImportError:  # pragma: no cover
     pass
 
@@ -241,7 +241,7 @@ def read_csv(
         Try to use pyarrow's native CSV parser.
         This is not always possible. The set of arguments given to
         this function determines if it is possible to use pyarrow's
-        native parser. Note that pyarrow and polars may have a
+        native parser. Note that pyarrow and qadataframe  may have a
         different strategy regarding type inference.
     storage_options
         Extra options that make sense for ``fsspec.open()`` or a

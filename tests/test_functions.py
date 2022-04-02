@@ -1,4 +1,4 @@
-import polars as pl
+import qadataframe as pl
 
 
 def test_date_datetime() -> None:

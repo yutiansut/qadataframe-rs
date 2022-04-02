@@ -1,7 +1,7 @@
 # flake8: noqa
 """
-The modules within `polars.internals` are interdependent. To prevent cyclical imports, they all import from each other
-via this __init__ file using `import polars.internals as pli`. The imports below are being shared across this module.
+The modules within `qadataframe.internals` are interdependent. To prevent cyclical imports, they all import from each other
+via this __init__ file using `import qadataframe.internals as pli`. The imports below are being shared across this module.
 """
 from .expr import Expr, expr_to_lit_or_expr, selection_to_pyexpr_list, wrap_expr
 from .frame import DataFrame, LazyFrame, wrap_df, wrap_ldf

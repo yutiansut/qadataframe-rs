@@ -2,7 +2,7 @@ from typing import TYPE_CHECKING, Any, Dict, Optional, Sequence, Union, overload
 
 import numpy as np
 
-from polars.internals import DataFrame, Series
+from qadataframe.internals import DataFrame, Series
 
 if TYPE_CHECKING:  # pragma: no cover
     import pandas as pd

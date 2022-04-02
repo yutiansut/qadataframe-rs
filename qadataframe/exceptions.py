@@ -1,5 +1,5 @@
 try:
-    from polars.polars import (
+    from qadataframe.qadataframe  import (
         ArrowError,
         ComputeError,
         NoDataError,

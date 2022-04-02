@@ -5,7 +5,7 @@ from typing import List
 
 import pytest
 
-import polars as pl
+import qadataframe as pl
 
 
 @pytest.fixture

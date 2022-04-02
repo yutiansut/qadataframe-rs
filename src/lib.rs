@@ -416,7 +416,7 @@ fn as_struct(exprs: Vec<PyExpr>) -> PyExpr {
 }
 
 #[pymodule]
-fn polars(py: Python, m: &PyModule) -> PyResult<()> {
+fn qadataframe(py: Python, m: &PyModule) -> PyResult<()> {
     m.add("NotFoundError", py.get_type::<NotFoundError>())
         .unwrap();
     m.add("NoDataError", py.get_type::<NoDataError>()).unwrap();

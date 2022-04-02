@@ -5,7 +5,7 @@ from textwrap import dedent
 from types import TracebackType
 from typing import Dict, Iterable, List, Optional, Type
 
-from polars.datatypes import Object, dtype_to_ffiname
+from qadataframe.datatypes import Object, dtype_to_ffiname
 
 
 class Tag:

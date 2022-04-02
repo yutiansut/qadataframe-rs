@@ -12,8 +12,8 @@ import pandas as pd
 import pyarrow as pa
 import pytest
 
-import polars as pl
-from polars import testing
+import qadataframe as pl
+from qadataframe import testing
 
 
 def test_version() -> None:
@@ -184,13 +184,13 @@ def test_init_pandas() -> None:
     pandas_df = pd.DataFrame([[1, 2], [3, 4]], columns=[1, 2])
 
     # pandas is available; integer column names
-    with patch("polars.internals.frame._PANDAS_AVAILABLE", True):
+    with patch("qadataframe.internals.frame._PANDAS_AVAILABLE", True):
         df = pl.DataFrame(pandas_df)
         truth = pl.DataFrame({"1": [1, 3], "2": [2, 4]})
         assert df.frame_equal(truth)
 
     # pandas is not available
-    with patch("polars.internals.frame._PANDAS_AVAILABLE", False):
+    with patch("qadataframe.internals.frame._PANDAS_AVAILABLE", False):
         with pytest.raises(ValueError):
             pl.DataFrame(pandas_df)
 
@@ -494,7 +494,7 @@ def test_pivot() -> None:
         out = df.pivot(values="c", index="b", columns="a", aggregate_fn=agg_fn)
         assert out.shape == (2, 6)
 
-    # example in polars-book
+    # example in qadataframe-book
     df = pl.DataFrame(
         {
             "foo": ["A", "A", "B", "B", "C"],
@@ -560,7 +560,7 @@ def test_joins_dispatch() -> None:
     # this just flexes the dispatch a bit
 
     # don't change the data of this dataframe, this triggered:
-    # https://github.com/pola-rs/polars/issues/1688
+    # https://github.com/pola-rs/qadataframe/issues/1688
     dfa = pl.DataFrame(
         {
             "a": ["a", "b", "c", "a"],
@@ -1227,8 +1227,8 @@ def test_distinct_unit_rows() -> None:
 
 
 def test_panic() -> None:
-    # may contain some tests that yielded a panic in polars or arrow
-    # https://github.com/pola-rs/polars/issues/1110
+    # may contain some tests that yielded a panic in qadataframe or arrow
+    # https://github.com/pola-rs/qadataframe/issues/1110
     a = pl.DataFrame(
         {
             "col1": ["a"] * 500 + ["b"] * 500,
@@ -1252,7 +1252,7 @@ def test_h_agg() -> None:
 
 
 def test_slicing() -> None:
-    # https://github.com/pola-rs/polars/issues/1322
+    # https://github.com/pola-rs/qadataframe/issues/1322
     n = 20
 
     df = pl.DataFrame(
@@ -1891,7 +1891,7 @@ def test_join_suffixes() -> None:
 def test_preservation_of_subclasses() -> None:
     """Tests for DataFrame inheritance."""
 
-    # We should be able to inherit from polars.DataFrame
+    # We should be able to inherit from qadataframe.DataFrame
     class SubClassedDataFrame(pl.DataFrame):
         pass
 

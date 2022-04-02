@@ -42,8 +42,8 @@ try:
 except ImportError:  # pragma: no cover
     _PYARROW_AVAILABLE = False
 
-from polars import internals as pli
-from polars.internals.construction import (
+from qadataframe  import internals as pli
+from qadataframe.internals.construction import (
     arrow_to_pydf,
     dict_to_pydf,
     numpy_to_pydf,
@@ -55,15 +55,15 @@ from polars.internals.construction import (
 from .lazy_frame import LazyFrame, wrap_ldf  # noqa: F401
 
 try:
-    from polars.polars import PyDataFrame, PySeries
+    from qadataframe.qadataframe import PyDataFrame, PySeries
 
     _DOCUMENTING = False
 except ImportError:  # pragma: no cover
     _DOCUMENTING = True
 
-from polars._html import NotebookFormatter
-from polars.datatypes import Boolean, DataType, UInt32, Utf8, py_type_to_dtype
-from polars.utils import (
+from qadataframe._html import NotebookFormatter
+from qadataframe.datatypes import Boolean, DataType, UInt32, Utf8, py_type_to_dtype
+from qadataframe.utils import (
     _prepare_row_count_args,
     _process_null_values,
     format_path,
@@ -81,7 +81,7 @@ except ImportError:  # pragma: no cover
     _PANDAS_AVAILABLE = False
 
 
-# A type variable used to refer to a polars.DataFrame or any subclass of it.
+# A type variable used to refer to a qadataframe.DataFrame or any subclass of it.
 # Used to annotate DataFrame methods which returns the same type as self.
 DF = TypeVar("DF", bound="DataFrame")
 
@@ -206,10 +206,10 @@ class DataFrame(metaclass=DataFrameMetaClass):
     │ 2   ┆ 4   │
     └─────┴─────┘
 
-    Notice that the dtype is automatically inferred as a polars Int64:
+    Notice that the dtype is automatically inferred as a qadataframe  Int64:
 
     >>> df.dtypes
-    [<class 'polars.datatypes.Int64'>, <class 'polars.datatypes.Int64'>]
+    [<class 'qadataframe.datatypes.Int64'>, <class 'qadataframe.datatypes.Int64'>]
 
     In order to specify dtypes for your columns, initialize the DataFrame with a list
     of Series instead:
@@ -302,7 +302,7 @@ class DataFrame(metaclass=DataFrameMetaClass):
         elif _PANDAS_AVAILABLE and isinstance(data, pd.DataFrame):
             if not _PYARROW_AVAILABLE:
                 raise ImportError(  # pragma: no cover
-                    "'pyarrow' is required for converting a pandas DataFrame to a polars DataFrame."
+                    "'pyarrow' is required for converting a pandas DataFrame to a qadataframe  DataFrame."
                 )
             self._df = pandas_to_pydf(data, columns=columns)
 
@@ -521,7 +521,7 @@ class DataFrame(metaclass=DataFrameMetaClass):
                 raise ValueError(
                     "cannot use glob patterns and unamed dtypes as `dtypes` argument; Use dtypes: Mapping[str, Type[DataType]"
                 )
-            from polars import scan_csv
+            from qadataframe  import scan_csv
 
             scan = scan_csv(
                 file,
@@ -606,7 +606,7 @@ class DataFrame(metaclass=DataFrameMetaClass):
         if isinstance(file, (str, Path)):
             file = format_path(file)
         if isinstance(file, str) and "*" in file:
-            from polars import scan_parquet
+            from qadataframe  import scan_parquet
 
             scan = scan_parquet(
                 file,
@@ -695,7 +695,7 @@ class DataFrame(metaclass=DataFrameMetaClass):
         if isinstance(file, (str, Path)):
             file = format_path(file)
         if isinstance(file, str) and "*" in file:
-            from polars import scan_ipc
+            from qadataframe  import scan_ipc
 
             scan = scan_ipc(
                 file,
@@ -752,7 +752,7 @@ class DataFrame(metaclass=DataFrameMetaClass):
         """
         if not _PYARROW_AVAILABLE:
             raise ImportError(  # pragma: no cover
-                "'pyarrow' is required for converting a polars DataFrame to an Arrow Table."
+                "'pyarrow' is required for converting a qadataframe  DataFrame to an Arrow Table."
             )
         record_batches = self._df.to_arrow()
         return pa.Table.from_batches(record_batches)
@@ -1996,7 +1996,7 @@ class DataFrame(metaclass=DataFrameMetaClass):
         ...     }
         ... )
         >>> df.dtypes
-        [<class 'polars.datatypes.Int64'>, <class 'polars.datatypes.Float64'>, <class 'polars.datatypes.Utf8'>]
+        [<class 'qadataframe.datatypes.Int64'>, <class 'qadataframe.datatypes.Float64'>, <class 'qadataframe.datatypes.Utf8'>]
         >>> df
         shape: (3, 3)
         ┌─────┬─────┬─────┐
@@ -2032,7 +2032,7 @@ class DataFrame(metaclass=DataFrameMetaClass):
         ...     }
         ... )
         >>> df.schema
-        {'foo': <class 'polars.datatypes.Int64'>, 'bar': <class 'polars.datatypes.Float64'>, 'ham': <class 'polars.datatypes.Utf8'>}
+        {'foo': <class 'qadataframe.datatypes.Int64'>, 'bar': <class 'qadataframe.datatypes.Float64'>, 'ham': <class 'qadataframe.datatypes.Utf8'>}
 
         """
         return dict(zip(self.columns, self.dtypes))
@@ -5093,7 +5093,7 @@ class DataFrame(metaclass=DataFrameMetaClass):
 
 class RollingGroupBy(Generic[DF]):
     """
-    A rolling grouper. This has an `.agg` method which will allow you to run all polars expressions
+    A rolling grouper. This has an `.agg` method which will allow you to run all qadataframe  expressions
     in a groupby context.
     """
 
@@ -5134,7 +5134,7 @@ class RollingGroupBy(Generic[DF]):
 
 class DynamicGroupBy(Generic[DF]):
     """
-    A dynamic grouper. This has an `.agg` method which will allow you to run all polars expressions
+    A dynamic grouper. This has an `.agg` method which will allow you to run all qadataframe  expressions
     in a groupby context.
     """
 
@@ -5387,7 +5387,7 @@ class GroupBy(Generic[DF]):
     ) -> DF:
         """
         Use multiple aggregations on columns. This can be combined with complete lazy API
-        and is considered idiomatic polars.
+        and is considered idiomatic qadataframe.
 
         Parameters
         ----------

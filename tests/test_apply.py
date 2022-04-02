@@ -1,7 +1,7 @@
 from functools import reduce
 from typing import List, Optional
 
-import polars as pl
+import qadataframe as pl
 
 
 def test_apply_none() -> None:

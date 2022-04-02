@@ -10,9 +10,9 @@ else:
 
 import numpy as np
 
-from polars import internals as pli
-from polars.datatypes import DataType, Date, Datetime, Duration, py_type_to_dtype
-from polars.utils import (
+from qadataframe  import internals as pli
+from qadataframe.datatypes import DataType, Date, Datetime, Duration, py_type_to_dtype
+from qadataframe.utils import (
     _datetime_to_pl_timestamp,
     _timedelta_to_pl_timedelta,
     in_nanoseconds_window,
@@ -20,29 +20,29 @@ from polars.utils import (
 )
 
 try:
-    from polars.polars import arange as pyarange
-    from polars.polars import argsort_by as pyargsort_by
-    from polars.polars import as_struct as _as_struct
-    from polars.polars import binary_function as pybinary_function
-    from polars.polars import col as pycol
-    from polars.polars import collect_all as _collect_all
-    from polars.polars import cols as pycols
-    from polars.polars import concat_lst as _concat_lst
-    from polars.polars import concat_str as _concat_str
-    from polars.polars import count as _count
-    from polars.polars import cov as pycov
-    from polars.polars import dtype_cols as _dtype_cols
-    from polars.polars import first as _first
-    from polars.polars import fold as pyfold
-    from polars.polars import last as _last
-    from polars.polars import lit as pylit
-    from polars.polars import map_mul as _map_mul
-    from polars.polars import max_exprs as _max_exprs
-    from polars.polars import min_exprs as _min_exprs
-    from polars.polars import pearson_corr as pypearson_corr
-    from polars.polars import py_datetime, py_duration
-    from polars.polars import repeat as _repeat
-    from polars.polars import spearman_rank_corr as pyspearman_rank_corr
+    from qadataframe.qadataframe  import arange as pyarange
+    from qadataframe.qadataframe  import argsort_by as pyargsort_by
+    from qadataframe.qadataframe  import as_struct as _as_struct
+    from qadataframe.qadataframe  import binary_function as pybinary_function
+    from qadataframe.qadataframe  import col as pycol
+    from qadataframe.qadataframe  import collect_all as _collect_all
+    from qadataframe.qadataframe  import cols as pycols
+    from qadataframe.qadataframe  import concat_lst as _concat_lst
+    from qadataframe.qadataframe  import concat_str as _concat_str
+    from qadataframe.qadataframe  import count as _count
+    from qadataframe.qadataframe  import cov as pycov
+    from qadataframe.qadataframe  import dtype_cols as _dtype_cols
+    from qadataframe.qadataframe  import first as _first
+    from qadataframe.qadataframe  import fold as pyfold
+    from qadataframe.qadataframe  import last as _last
+    from qadataframe.qadataframe  import lit as pylit
+    from qadataframe.qadataframe  import map_mul as _map_mul
+    from qadataframe.qadataframe  import max_exprs as _max_exprs
+    from qadataframe.qadataframe  import min_exprs as _min_exprs
+    from qadataframe.qadataframe  import pearson_corr as pypearson_corr
+    from qadataframe.qadataframe  import py_datetime, py_duration
+    from qadataframe.qadataframe  import repeat as _repeat
+    from qadataframe.qadataframe  import spearman_rank_corr as pyspearman_rank_corr
 
     _DOCUMENTING = False
 except ImportError:  # pragma: no cover
@@ -1042,7 +1042,7 @@ def duration(
     weeks: Optional[Union["pli.Expr", str]] = None,
 ) -> "pli.Expr":
     """
-    Create polars `Duration` from distinct time components.
+    Create qadataframe  `Duration` from distinct time components.
 
     Returns
     -------
@@ -1112,7 +1112,7 @@ def _datetime(
     millisecond: Optional[Union["pli.Expr", str]] = None,
 ) -> "pli.Expr":
     """
-    Create polars `Datetime` from distinct time components.
+    Create qadataframe  `Datetime` from distinct time components.
 
     Parameters
     ----------
@@ -1167,7 +1167,7 @@ def _date(
     day: Union["pli.Expr", str],
 ) -> "pli.Expr":
     """
-    Create polars Date from distinct time components.
+    Create qadataframe  Date from distinct time components.
 
     Parameters
     ----------
@@ -1381,7 +1381,7 @@ def select(
     exprs: Union[str, "pli.Expr", Sequence[str], Sequence["pli.Expr"], "pli.Series"]
 ) -> "pli.DataFrame":
     """
-    Run polars expressions without a context.
+    Run qadataframe  expressions without a context.
 
     This is syntactic sugar for running `df.select` on an empty DataFrame.
 

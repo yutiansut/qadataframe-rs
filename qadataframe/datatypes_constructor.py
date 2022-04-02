@@ -2,7 +2,7 @@ from typing import Any, Callable, Sequence, Type
 
 import numpy as np
 
-from polars.datatypes import (
+from qadataframe.datatypes import (
     Boolean,
     Categorical,
     DataType,
@@ -25,7 +25,7 @@ from polars.datatypes import (
 )
 
 try:
-    from polars.polars import PySeries
+    from qadataframe.qadataframe  import PySeries
 
     _DOCUMENTING = False
 except ImportError:  # pragma: no cover

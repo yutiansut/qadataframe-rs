@@ -1,5 +1,5 @@
 """
-Run all doctest examples inside the `polars` module using Python's built-in doctest module.
+Run all doctest examples inside the `qadataframe` module using Python's built-in doctest module.
 
 How to check examples: run this script, if exits with code 0, all is good. Otherwise, the errors will be reported.
 
@@ -25,7 +25,7 @@ import unittest
 from pathlib import Path
 from typing import Any, Generator
 
-import polars
+import qadataframe
 
 
 def modules_in_path(p: Path) -> Generator:
@@ -68,11 +68,11 @@ if __name__ == "__main__":
     # doctest.REPORT_NDIFF = True
 
     # __file__ returns the __init__.py, so grab the parent
-    src_dir = Path(polars.__file__).parent
+    src_dir = Path(qadataframe.__file__).parent
 
     # collect all tests
     tests = [
-        doctest.DocTestSuite(m, extraglobs={"pl": polars}, optionflags=1)
+        doctest.DocTestSuite(m, extraglobs={"pl": qadataframe}, optionflags=1)
         for m in modules_in_path(src_dir)
     ]
     test_suite = unittest.TestSuite(tests)

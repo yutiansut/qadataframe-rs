@@ -7,7 +7,7 @@ import pyarrow as pa
 import pytest
 from test_series import verify_series_and_expr_api
 
-import polars as pl
+import qadataframe as pl
 
 
 def test_fill_null() -> None:

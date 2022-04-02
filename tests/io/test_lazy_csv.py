@@ -6,7 +6,7 @@ from pathlib import Path
 import numpy as np
 import pytest
 
-import polars as pl
+import qadataframe as pl
 
 
 def test_scan_csv() -> None:

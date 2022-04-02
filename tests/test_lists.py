@@ -1,8 +1,8 @@
 import pandas as pd
 from test_series import verify_series_and_expr_api
 
-import polars as pl
-from polars import testing
+import qadataframe as pl
+from qadataframe import testing
 
 
 def test_list_arr_get() -> None:
@@ -46,7 +46,7 @@ def test_dtype() -> None:
 
 
 def test_categorical() -> None:
-    # https://github.com/pola-rs/polars/issues/2038
+    # https://github.com/pola-rs/qadataframe/issues/2038
     df = pl.DataFrame(
         [
             pl.Series("a", [1, 1, 1, 1, 1, 1, 1, 1]),
@@ -72,7 +72,7 @@ def test_categorical() -> None:
 
 
 def test_list_concat_rolling_window() -> None:
-    # inspired by: https://stackoverflow.com/questions/70377100/use-the-rolling-function-of-polars-to-get-a-list-of-all-values-in-the-rolling-wi
+    # inspired by: https://stackoverflow.com/questions/70377100/use-the-rolling-function-of-qadataframe-to-get-a-list-of-all-values-in-the-rolling-wi
     # this tests if it works without specifically creating list dtype upfront.
     # note that the given answer is prefered over this snippet as that reuses the list array when shifting
     df = pl.DataFrame(

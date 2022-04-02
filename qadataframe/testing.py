@@ -1,6 +1,6 @@
 from typing import Any
 
-from polars.datatypes import (
+from qadataframe.datatypes import (
     Boolean,
     Float32,
     Float64,
@@ -14,7 +14,7 @@ from polars.datatypes import (
     Utf8,
     dtype_to_py_type,
 )
-from polars.internals import DataFrame, Series
+from qadataframe.internals import DataFrame, Series
 
 _NUMERIC_COL_TYPES = (
     Int16,

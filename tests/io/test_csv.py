@@ -9,8 +9,8 @@ from typing import Dict, List, Type, Union
 
 import pytest
 
-import polars as pl
-from polars import DataType
+import qadataframe as pl
+from qadataframe import DataType
 
 
 def test_to_from_buffer(df: pl.DataFrame) -> None:
@@ -41,7 +41,7 @@ def test_to_from_file(io_test_dir: str, df: pl.DataFrame) -> None:
 
 
 def test_read_web_file() -> None:
-    url = "https://raw.githubusercontent.com/pola-rs/polars/master/examples/datasets/foods1.csv"
+    url = "https://raw.githubusercontent.com/pola-rs/qadataframe/master/examples/datasets/foods1.csv"
     df = pl.read_csv(url)
     assert df.shape == (27, 4)
 
@@ -247,7 +247,7 @@ def test_csq_quote_char() -> None:
 
 
 def test_csv_empty_quotes_char() -> None:
-    # panicked in: https://github.com/pola-rs/polars/issues/1622
+    # panicked in: https://github.com/pola-rs/qadataframe/issues/1622
     pl.read_csv(b"a,b,c,d\nA1,B1,C1,1\nA2,B2,C2,2\n", quote_char="")
 
 

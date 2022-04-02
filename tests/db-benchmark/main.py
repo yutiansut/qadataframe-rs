@@ -5,7 +5,7 @@ import time
 
 import numpy as np
 
-import polars as pl
+import qadataframe as pl
 
 print(pl.__version__)
 

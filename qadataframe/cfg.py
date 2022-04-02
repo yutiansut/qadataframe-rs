@@ -1,7 +1,7 @@
 import os
 from typing import Type
 
-from polars.string_cache import toggle_string_cache
+from qadataframe.string_cache import toggle_string_cache
 
 
 class Config:

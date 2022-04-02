@@ -2,7 +2,7 @@ import os
 
 import pytest
 
-import polars as pl
+import qadataframe as pl
 
 IO_TEST_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "io"))
 
@@ -10,12 +10,11 @@ EXAMPLES_DIR = os.path.abspath(
     os.path.join(
         os.path.dirname(__file__),
         "..",
-        "..",
         "examples",
         "datasets",
     )
 )
-
+print(EXAMPLES_DIR)
 FOODS_CSV = os.path.join(
     EXAMPLES_DIR,
     "foods1.csv",
@@ -46,7 +45,7 @@ def examples_dir() -> str:
 def foods_csv() -> str:
     return FOODS_CSV
 
-
+print(FOODS_CSV)
 if not os.path.isfile(FOODS_PARQUET):
     pl.read_csv(FOODS_CSV).to_parquet(FOODS_PARQUET)
 

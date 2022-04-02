@@ -4,7 +4,7 @@ import os
 
 import pytest
 
-import polars as pl
+import qadataframe as pl
 
 
 def test_to_from_buffer(df: pl.DataFrame) -> None:

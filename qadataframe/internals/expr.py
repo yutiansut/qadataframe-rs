@@ -4,10 +4,10 @@ from typing import Any, Callable, List, Optional, Sequence, Tuple, Type, Union
 
 import numpy as np
 
-from polars.utils import _timedelta_to_pl_duration
+from qadataframe.utils import _timedelta_to_pl_duration
 
 try:
-    from polars.polars import PyExpr
+    from qadataframe.qadataframe  import PyExpr
 
     _DOCUMENTING = False
 except ImportError:  # pragma: no cover
@@ -15,8 +15,8 @@ except ImportError:  # pragma: no cover
 
 import math
 
-from polars import internals as pli
-from polars.datatypes import (
+from qadataframe  import internals as pli
+from qadataframe.datatypes import (
     DataType,
     Date,
     Datetime,

@@ -7,7 +7,7 @@ from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple, Type, U
 
 import numpy as np
 
-from polars.datatypes import DataType, Date, Datetime
+from qadataframe.datatypes import DataType, Date, Datetime
 
 if sys.version_info >= (3, 10):
     from typing import TypeGuard

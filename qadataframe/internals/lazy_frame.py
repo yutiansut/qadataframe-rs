@@ -21,22 +21,22 @@ from typing import (
 )
 
 try:
-    from polars.polars import PyExpr, PyLazyFrame, PyLazyGroupBy
+    from qadataframe.qadataframe  import PyExpr, PyLazyFrame, PyLazyGroupBy
 
     _DOCUMENTING = False
 except ImportError:  # pragma: no cover
     _DOCUMENTING = True
 
-from polars import internals as pli
-from polars.datatypes import DataType, py_type_to_dtype
-from polars.utils import _in_notebook, _prepare_row_count_args, _process_null_values
+from qadataframe  import internals as pli
+from qadataframe.datatypes import DataType, py_type_to_dtype
+from qadataframe.utils import _in_notebook, _prepare_row_count_args, _process_null_values
 
 # Used to type any type or subclass of LazyFrame.
 # Used to indicate when LazyFrame methods return the same type as self,
 # including sub-classes.
 LDF = TypeVar("LDF", bound="LazyFrame")
 
-# We redefine the DF type variable from polars.internals.frame here in order to prevent
+# We redefine the DF type variable from qadataframe.internals.frame here in order to prevent
 # circular import issues. The frame module needs this module to be defined at import
 # time due to how the metaclass of DataFrame is defined.
 DF = TypeVar("DF", bound="pli.DataFrame")
@@ -85,13 +85,13 @@ class LazyFrame(Generic[DF]):
 
         This class is used when a LazyFrame object is casted to a non-lazy representation
         by the invocation of `.collect()`, `.fetch()`, and so on. By default we specify
-        the regular `polars.internals.frame.DataFrame` class here, but any subclass of
+        the regular `qadataframe.internals.frame.DataFrame` class here, but any subclass of
         DataFrame that wishes to preserve its type when converted to LazyFrame and back
         (with `.lazy().collect()` for instance) must overwrite this class variable
         before setting DataFrame._lazyframe_class.
 
         This property is dynamically overwritten when DataFrame is sub-classed. See
-        `polars.internals.frame.DataFrameMetaClass.__init__` for implementation details.
+        `qadataframe.internals.frame.DataFrameMetaClass.__init__` for implementation details.
         """
         return pli.DataFrame  # type: ignore
 
@@ -372,7 +372,7 @@ class LazyFrame(Generic[DF]):
         ...     .inspect()  # print the node before the filter
         ...     .filter(pl.col("bar") == pl.col("foo"))
         ... )  # doctest: +ELLIPSIS
-        <polars.internals.lazy_frame.LazyFrame object at ...>
+        <qadataframe.internals.lazy_frame.LazyFrame object at ...>
 
         """
 

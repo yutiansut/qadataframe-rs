@@ -268,7 +268,7 @@ def maybe_cast(
     el: Type[DataType], dtype: Type, time_unit: Optional[str] = None
 ) -> Type[DataType]:
     # cast el if it doesn't match
-    from polars.utils import _datetime_to_pl_timestamp, _timedelta_to_pl_timedelta
+    from qadataframe.utils import _datetime_to_pl_timestamp, _timedelta_to_pl_timedelta
 
     if isinstance(el, datetime):
         return _datetime_to_pl_timestamp(el, time_unit)

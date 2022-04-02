@@ -2,22 +2,22 @@
 import warnings
 
 try:
-    from polars.polars import version
+    from qadataframe.qadataframe import version
 except ImportError as e:  # pragma: no cover
 
     def version() -> str:
         return ""
 
     # this is only useful for documentation
-    warnings.warn("polars binary missing!")
+    warnings.warn("qadataframe binary missing!")
 
-import polars.testing as testing
-from polars.cfg import (  # flake8: noqa. We do not export in __all__
+import qadataframe.testing as testing
+from qadataframe.cfg import (  # flake8: noqa. We do not export in __all__
     Config,
     toggle_string_cache,
 )
-from polars.convert import from_arrow, from_dict, from_dicts, from_pandas, from_records
-from polars.datatypes import (
+from qadataframe.convert import from_arrow, from_dict, from_dicts, from_pandas, from_records
+from qadataframe.datatypes import (
     Boolean,
     Categorical,
     DataType,
@@ -41,7 +41,7 @@ from polars.datatypes import (
     UInt64,
     Utf8,
 )
-from polars.exceptions import (
+from qadataframe.exceptions import (
     ArrowError,
     ComputeError,
     NoDataError,
@@ -49,16 +49,16 @@ from polars.exceptions import (
     SchemaError,
     ShapeError,
 )
-from polars.internals.expr import Expr
-from polars.internals.frame import (  # flake8: noqa # TODO: remove need for wrap_df
+from qadataframe.internals.expr import Expr
+from qadataframe.internals.frame import (  # flake8: noqa # TODO: remove need for wrap_df
     DataFrame,
     wrap_df,
 )
-from polars.internals.functions import arg_where, concat, date_range, get_dummies
-from polars.internals.lazy_frame import LazyFrame
-from polars.internals.lazy_functions import _date as date
-from polars.internals.lazy_functions import _datetime as datetime
-from polars.internals.lazy_functions import (
+from qadataframe.internals.functions import arg_where, concat, date_range, get_dummies
+from qadataframe.internals.lazy_frame import LazyFrame
+from qadataframe.internals.lazy_functions import _date as date
+from qadataframe.internals.lazy_functions import _datetime as datetime
+from qadataframe.internals.lazy_functions import (
     all,
     any,
     apply,
@@ -97,14 +97,14 @@ from polars.internals.lazy_functions import (
     sum,
     tail,
 )
-from polars.internals.lazy_functions import to_list as list
-from polars.internals.lazy_functions import var
-from polars.internals.series import (  # flake8: noqa # TODO: remove need for wrap_s
+from qadataframe.internals.lazy_functions import to_list as list
+from qadataframe.internals.lazy_functions import var
+from qadataframe.internals.series import (  # flake8: noqa # TODO: remove need for wrap_s
     Series,
     wrap_s,
 )
-from polars.internals.whenthen import when
-from polars.io import (
+from qadataframe.internals.whenthen import when
+from qadataframe.io import (
     read_avro,
     read_csv,
     read_ipc,
@@ -116,7 +116,7 @@ from polars.io import (
     scan_ipc,
     scan_parquet,
 )
-from polars.string_cache import StringCache
+from qadataframe.string_cache import StringCache
 
 __all__ = [
     "exceptions",
@@ -129,7 +129,7 @@ __all__ = [
     "DataFrame",
     "Series",
     "LazyFrame",
-    # polars.datatypes
+    # qadataframe.datatypes
     "DataType",
     "Int8",
     "Int16",
@@ -150,7 +150,7 @@ __all__ = [
     "Object",
     "Categorical",
     "Struct",
-    # polars.io
+    # qadataframe.io
     "read_csv",
     "read_parquet",
     "read_json",
@@ -161,21 +161,21 @@ __all__ = [
     "scan_parquet",
     "read_ipc_schema",
     "read_avro",
-    # polars.stringcache
+    # qadataframe.stringcache
     "StringCache",
-    # polars.config
+    # qadataframe.config
     "Config",
-    # polars.internal.when
+    # qadataframe.internal.when
     "when",
-    # polars.internal.expr
+    # qadataframe.internal.expr
     "Expr",
-    # polars.internal.functions
+    # qadataframe.internal.functions
     "arg_where",
     "concat",
     "date_range",
     "get_dummies",
     "repeat",
-    # polars.internal.lazy_functions
+    # qadataframe.internal.lazy_functions
     "col",
     "count",
     "std",
@@ -215,7 +215,7 @@ __all__ = [
     "list",  # named to_list, see import above
     "select",
     "var",
-    # polars.convert
+    # qadataframe.convert
     "from_dict",
     "from_dicts",
     "from_records",

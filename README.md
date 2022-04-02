@@ -34,7 +34,7 @@ Polars is a blazingly fast DataFrames library implemented in Rust using
 To learn more, read the [User Guide](https://pola-rs.github.io/polars-book/).
 
 ```python
->>> import polars as pl
+>>> import qadataframe as pl
 >>> df = pl.DataFrame(
 ...     {
 ...         "A": [1, 2, 3, 4, 5],

@@ -1,6 +1,6 @@
 from datetime import date, datetime, timedelta
 
-from polars.utils import (
+from qadataframe.utils import (
     _date_to_pl_date,
     _datetime_to_pl_timestamp,
     _timedelta_to_pl_timedelta,

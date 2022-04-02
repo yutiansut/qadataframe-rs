@@ -16,7 +16,7 @@ polars/vendor
 .ENV
 .env
 AUTO_CHANGELOG.md
-
+examples/
 .coverage
 
 *.iml

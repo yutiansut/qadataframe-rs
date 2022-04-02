@@ -5,7 +5,7 @@ import pandas as pd
 import pyarrow as pa
 import pytest
 
-import polars as pl
+import qadataframe as pl
 
 
 def test_from_pandas() -> None:
@@ -80,12 +80,12 @@ def test_from_pandas_datetime() -> None:
 
 
 def test_arrow_list_roundtrip() -> None:
-    # https://github.com/pola-rs/polars/issues/1064
+    # https://github.com/pola-rs/qadataframe/issues/1064
     tbl = pa.table({"a": [1], "b": [[1, 2]]})
     assert pl.from_arrow(tbl).to_arrow().shape == tbl.shape
 
 
-def test_arrow_dict_to_polars() -> None:
+def test_arrow_dict_to_qadataframe() -> None:
     pa_dict = pa.DictionaryArray.from_arrays(
         indices=np.array([0, 1, 2, 3, 1, 0, 2, 3, 3, 2]),
         dictionary=np.array(["AAA", "BBB", "CCC", "DDD"]),
@@ -118,7 +118,7 @@ def test_from_pandas_null() -> None:
 
 
 def test_from_pandas_nested_list() -> None:
-    # this panicked in https://github.com/pola-rs/polars/issues/1615
+    # this panicked in https://github.com/pola-rs/qadataframe/issues/1615
     pddf = pd.DataFrame(
         {"a": [1, 2, 3, 4], "b": [["x", "y"], ["x", "y", "z"], ["x"], ["x", "y"]]}
     )
@@ -226,9 +226,9 @@ def test_from_empty_pandas() -> None:
         }
     )
 
-    polars_df = pl.from_pandas(pandas_df)
-    assert polars_df.columns == ["A", "fruits"]
-    assert polars_df.dtypes == [pl.Float64, pl.Float64]
+    qadataframe_df = pl.from_pandas(pandas_df)
+    assert qadataframe_df.columns == ["A", "fruits"]
+    assert qadataframe_df.dtypes == [pl.Float64, pl.Float64]
 
 
 def test_from_empty_pandas_strings() -> None:

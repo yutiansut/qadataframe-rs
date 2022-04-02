@@ -1,4 +1,4 @@
-import polars as pl
+import qadataframe as pl
 
 path = "G1_1e7_1e2_5_0.csv"
 predicate = pl.col("v2") < 5

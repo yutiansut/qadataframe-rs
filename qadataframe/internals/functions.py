@@ -1,20 +1,20 @@
 from datetime import datetime, timedelta
 from typing import Optional, Sequence, Union, overload
 
-from polars import internals as pli
-from polars.utils import (
+from qadataframe  import internals as pli
+from qadataframe.utils import (
     _datetime_to_pl_timestamp,
     _timedelta_to_pl_duration,
     in_nanoseconds_window,
 )
 
 try:
-    from polars.polars import concat_df as _concat_df
-    from polars.polars import concat_lf as _concat_lf
-    from polars.polars import concat_series as _concat_series
-    from polars.polars import py_date_range as _py_date_range
-    from polars.polars import py_diag_concat_df as _diag_concat_df
-    from polars.polars import py_hor_concat_df as _hor_concat_df
+    from qadataframe.qadataframe  import concat_df as _concat_df
+    from qadataframe.qadataframe  import concat_lf as _concat_lf
+    from qadataframe.qadataframe  import concat_series as _concat_series
+    from qadataframe.qadataframe  import py_date_range as _py_date_range
+    from qadataframe.qadataframe  import py_diag_concat_df as _diag_concat_df
+    from qadataframe.qadataframe  import py_hor_concat_df as _hor_concat_df
 
     _DOCUMENTING = False
 except ImportError:  # pragma: no cover
@@ -162,7 +162,7 @@ def date_range(
         Upper bound of the date range
     interval
         Interval periods
-        A python timedelta object or a polars duration `str`
+        A python timedelta object or a qadataframe  duration `str`
         e.g.: "3d12h4m25s" # 3 days, 12 hours, 4 minutes, and 25 seconds
     closed {None, 'left', 'right', 'both', 'none'}
         Make the interval closed to the 'left', 'right', 'none' or 'both' sides.

@@ -4,9 +4,9 @@ import time
 
 import numpy as np
 
-import polars as pl
+import qadataframe as pl
 
-# https://github.com/pola-rs/polars/issues/1942
+# https://github.com/pola-rs/qadataframe/issues/1942
 t0 = time.time()
 pl.repeat(float("nan"), 2 << 12).sort()
 assert (time.time() - t0) < 1
@@ -24,7 +24,7 @@ assert np.isclose(
     df.with_column(pl.col("value").cast(pl.Int32)).get_column("value").mean(), mean
 )
 
-# https://github.com/pola-rs/polars/issues/2850
+# https://github.com/pola-rs/qadataframe/issues/2850
 df = pl.DataFrame(
     {
         "id": [

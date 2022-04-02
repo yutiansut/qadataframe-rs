@@ -3,7 +3,7 @@ from typing import Generator
 
 import pytest
 
-import polars as pl
+import qadataframe as pl
 
 
 @pytest.fixture()

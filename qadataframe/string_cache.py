@@ -2,7 +2,7 @@ from types import TracebackType
 from typing import Optional, Type
 
 try:
-    from polars.polars import toggle_string_cache as pytoggle_string_cache
+    from qadataframe.qadataframe  import toggle_string_cache as pytoggle_string_cache
 
     _DOCUMENTING = False
 except ImportError:  # pragma: no cover

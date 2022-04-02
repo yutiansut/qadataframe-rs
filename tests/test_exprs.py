@@ -1,7 +1,7 @@
 from test_series import verify_series_and_expr_api
 
-import polars as pl
-from polars import testing
+import qadataframe as pl
+from qadataframe import testing
 
 
 def test_horizontal_agg(fruits_cars: pl.DataFrame) -> None:

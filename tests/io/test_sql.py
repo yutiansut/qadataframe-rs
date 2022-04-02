@@ -1,7 +1,7 @@
 import os
 from datetime import date
 
-import polars as pl
+import qadataframe as pl
 
 
 def test_read_sql() -> None:

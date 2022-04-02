@@ -4,8 +4,8 @@ from typing import TYPE_CHECKING, Any, Dict, List, Optional, Sequence, Type, Uni
 
 import numpy as np
 
-from polars import internals as pli
-from polars.datatypes import (
+from qadataframe  import internals as pli
+from qadataframe.datatypes import (
     Categorical,
     DataType,
     Date,
@@ -16,14 +16,14 @@ from polars.datatypes import (
     py_type_to_arrow_type,
     py_type_to_dtype,
 )
-from polars.datatypes_constructor import (
+from qadataframe.datatypes_constructor import (
     numpy_type_to_constructor,
     polars_type_to_constructor,
     py_type_to_constructor,
 )
 
 try:
-    from polars.polars import PyDataFrame, PySeries
+    from qadataframe.qadataframe  import PyDataFrame, PySeries
 
     _DOCUMENTING = False
 except ImportError:  # pragma: no cover

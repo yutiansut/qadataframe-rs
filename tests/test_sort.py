@@ -2,7 +2,7 @@ from typing import List, Union
 
 import pytest
 
-import polars as pl
+import qadataframe as pl
 
 
 def test_sort_dates_multiples() -> None:

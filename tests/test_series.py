@@ -7,9 +7,9 @@ import pandas as pd
 import pyarrow as pa
 import pytest
 
-import polars as pl
-from polars import testing
-from polars.datatypes import Float64, Int32, Int64, UInt32, UInt64
+import qadataframe as pl
+from qadataframe import testing
+from qadataframe.datatypes import Float64, Int32, Int64, UInt32, UInt64
 
 
 def _getattr_multi(obj: object, op: str) -> Any:
@@ -673,9 +673,9 @@ def test_jsonpath_single() -> None:
 def test_extract_regex() -> None:
     s = pl.Series(
         [
-            "http://vote.com/ballon_dor?candidate=messi&ref=polars",
-            "http://vote.com/ballon_dor?candidat=jorginho&ref=polars",
-            "http://vote.com/ballon_dor?candidate=ronaldo&ref=polars",
+            "http://vote.com/ballon_dor?candidate=messi&ref=qadataframe",
+            "http://vote.com/ballon_dor?candidat=jorginho&ref=qadataframe",
+            "http://vote.com/ballon_dor?candidate=ronaldo&ref=qadataframe",
         ]
     )
     expected = pl.Series(
@@ -835,7 +835,7 @@ def test_true_divide() -> None:
         pl.Series("literal", [2.0, 1.0]),
     )
 
-    # https://github.com/pola-rs/polars/issues/1369
+    # https://github.com/pola-rs/qadataframe/issues/1369
     vals = [3000000000, 2, 3]
     foo = pl.Series(vals)
     testing.assert_series_equal(foo / 1, pl.Series(vals, dtype=Float64))
@@ -940,12 +940,12 @@ def test_comparisons_bool_series_to_int() -> None:
     srs_bool = pl.Series([True, False])
     # todo: do we want this to work?
     testing.assert_series_equal(srs_bool / 1, pl.Series([True, False], dtype=Float64))
-    match = r"cannot do arithmetic with series of dtype: <class 'polars.datatypes.Boolean'> and argument of type: <class 'bool'>"
+    match = r"cannot do arithmetic with series of dtype: <class 'qadataframe.datatypes.Boolean'> and argument of type: <class 'bool'>"
     with pytest.raises(ValueError, match=match):
         srs_bool - 1
     with pytest.raises(ValueError, match=match):
         srs_bool + 1
-    match = r"cannot do arithmetic with series of dtype: <class 'polars.datatypes.Boolean'> and argument of type: <class 'bool'>"
+    match = r"cannot do arithmetic with series of dtype: <class 'qadataframe.datatypes.Boolean'> and argument of type: <class 'bool'>"
     with pytest.raises(ValueError, match=match):
         srs_bool % 2
     with pytest.raises(ValueError, match=match):
